@@ -52,13 +52,29 @@ build:
 	@echo "Building the binary..."
 	@GOPROXY=https://goproxy.io go get .
 	@go build -ldflags="-X github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
+	@go build -buildmode=plugin -o ./plugins/ralali-auth-interceptor/ralali-auth-interceptor-plugin.so ./plugins/ralali-auth-interceptor/ralali-auth-interceptor-plugin.go
+	@go build -buildmode=plugin -o ./plugins/header-mod/header-mod-plugin.so ./plugins/header-mod/header-mod-plugin.go
+	@go build -buildmode=plugin -o ./plugins/header-mod-client/header-mod-client-plugin.so ./plugins/header-mod-client/header-mod-client-plugin.go
 	@echo "You can now use ./${BIN_NAME}"
+
+build_plugin:
+	@echo "Compiling plugins..."
+	@go build -buildmode=plugin -o ./plugins/ralali-auth-interceptor/ralali-auth-interceptor-plugin.so ./plugins/ralali-auth-interceptor/ralali-auth-interceptor-plugin.go
+	@go build -buildmode=plugin -o ./plugins/ralali-header-transformator/ralali-header-transformator-plugin.so ./plugins/ralali-header-transformator/ralali-header-transformator-plugin.go
+	
+	# @go build -buildmode=plugin -o ./plugins/header-mod/header-mod-plugin.so ./plugins/header-mod/header-mod-plugin.go
+	# @go build -buildmode=plugin -o ./plugins/header-mod-client/header-mod-client-plugin.so ./plugins/header-mod-client/header-mod-client-plugin.go
+	@echo "Done compiling plugin"
+
 
 test: build
 	go test -v ./tests
 
 docker_build:
 	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make build
+
+docker_build_plugin:
+	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make build_plugin
 
 krakend_docker: docker_build
 	docker build -t devopsfaith/krakend:${VERSION} .

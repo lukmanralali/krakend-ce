@@ -3,9 +3,6 @@ module github.com/devopsfaith/krakend-ce
 go 1.12
 
 require (
-	contrib.go.opencensus.io/exporter/jaeger v0.0.0-20190424224017-5b8293c22f36 // indirect
-	contrib.go.opencensus.io/exporter/prometheus v0.0.0-20190424224027-f02a6e68f94d // indirect
-	contrib.go.opencensus.io/exporter/zipkin v0.0.0-20190424224031-c96617f51dc6 // indirect
 	github.com/Azure/azure-amqp-common-go v1.1.4 // indirect
 	github.com/DataDog/opencensus-go-exporter-datadog v0.0.0-20191210083620-6965a1cfed68
 	github.com/PuerkitoBio/goquery v1.4.0 // indirect
@@ -18,7 +15,6 @@ require (
 	github.com/briankassouf/jose v0.9.1 // indirect
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
 	github.com/cenkalti/backoff v2.1.1+incompatible // indirect
-	github.com/census-instrumentation/opencensus-proto v0.2.1 // indirect
 	github.com/centrify/cloud-golang-sdk v0.0.0-20180119173102-7c97cc6fde16 // indirect
 	github.com/chrismalek/oktasdk-go v0.0.0-20181212195951-3430665dfaa0 // indirect
 	github.com/clbanning/mxj v1.8.4 // indirect
@@ -141,7 +137,6 @@ require (
 	github.com/uber/jaeger-client-go v2.15.0+incompatible // indirect
 	github.com/uber/jaeger-lib v1.5.0 // indirect
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
-	github.com/valyala/fastrand v1.0.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609 // indirect
@@ -149,7 +144,6 @@ require (
 	go.etcd.io/etcd v3.3.11+incompatible // indirect
 	golang.org/x/build v0.0.0-20190111050920-041ab4dc3f9d // indirect
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
-	gopkg.in/DataDog/dd-trace-go.v1 v1.22.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/gorethink/gorethink.v4 v4.1.0 // indirect

@@ -17,6 +17,12 @@ VOLUME [ "/etc/krakend" ]
 
 WORKDIR /etc/krakend
 
+COPY ./krakend.json /etc/krakend/krakend.json
+# COPY ./plugins/ /etc/krakend/plugin/
+# COPY ./plugins/ralali-auth-interceptor/*.so /etc/krakend/plugin/
+COPY ./plugins/ralali-header-transformator/*.so /etc/krakend/plugin/
+
+
 ENTRYPOINT [ "/usr/bin/krakend" ]
 CMD [ "run", "-c", "/etc/krakend/krakend.json" ]
 
